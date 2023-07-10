@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  # Mongodb service
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+
+  # Node api service
+  api:
+    build: .
+    ports:
+      # local->container
+      - 4000:3000
+    environment:
+      PORT: 3000
+      MONGODB_URI: mongodb://mongo_db:27017
+      DB_NAME: sample-db
+    depends_on: 
+      - mongo_db
+  # Node api service
+  freeradius:
+    image: freeradius/freeradius-server:latest
+    ports:
+      # local->container
+      - 1812:1812/udp
+      - 1813:1813/udp
+    environment:
+      PORT: 3000
+      MONGODB_URI: mongodb://mongo_db:27017
+      DB_NAME: sample-db
+    depends_on: 
+      - mongo_db
+volumes:
+  mongo_data: {}
