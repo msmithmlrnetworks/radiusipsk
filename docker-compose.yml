@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   # Mongodb service
-  mongo_db:
+  mongodb:
     container_name: db_container
     image: mongo:latest
     restart: always
@@ -11,8 +11,6 @@ services:
     ports:
       # local->container
       - 27017:27017
-
-
   # Node api service
   api:
     build: .
@@ -22,7 +20,7 @@ services:
     environment:
       PORT: 3000
       MONGODB_URI: mongodb://mongo_db:27017
-      DB_NAME: sample-db
+      DB_NAME: radiusdb
     depends_on: 
       - mongo_db
   # Node api service

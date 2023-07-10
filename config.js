@@ -1,4 +1,4 @@
-let mongodb = process.env.MONGODB_URI || 'mongodb://localhost:27017/radiusdb';
+let mongodb = process.env.MONGODB_URI;
 module.exports = {
-    'database': mongodb,
+    'database': `${mongodb}/${DB_NAME}`,
 };
