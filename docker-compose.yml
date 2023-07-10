@@ -26,6 +26,7 @@ services:
       - mongodb
     links:
       - mongodb
+
   # Node api service
   freeradius:
     image: freeradius/freeradius-server:latest
@@ -33,3 +34,5 @@ services:
       # local->container
       - 1812:1812/udp
       - 1813:1813/udp
+    volumes:
+      - ./resouce/freeradius:/etc/freeradius
