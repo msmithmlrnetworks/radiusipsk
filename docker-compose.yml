@@ -7,7 +7,7 @@ services:
     image: mongo:latest
     restart: always
     volumes:
-      - mongo_data:/data/db
+      - ./mongo_data:/data/db
     ports:
       # local->container
       - 27017:27017
@@ -30,7 +30,3 @@ services:
       # local->container
       - 1812:1812/udp
       - 1813:1813/udp
-
-
-volumes:
-  mongo_data: {}
