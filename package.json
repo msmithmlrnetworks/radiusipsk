@@ -4,7 +4,8 @@
   "description": "\"A simple REST Server for the FreeRADIUS rlm_rest module.\"",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "run": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,7 @@
   },
   "homepage": "https://github.com/fgsants/REST-API-FreeRADIUS/#readme",
   "devDependencies": {
-    "morgan": "^1.8.1",
+    "morgan": "^1.10.0",
     "nodemon": "^1.11.0"
   },
   "dependencies": {
