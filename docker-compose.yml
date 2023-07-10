@@ -35,5 +35,6 @@ services:
       - 1812:1812/udp
       - 1813:1813/udp
     volumes:
-      - /resources/freeradius/clients.conf:/etc/freeradius/clients.conf
+      - ./resources/freeradius/clients.conf:/etc/raddb/clients.conf
       
+
