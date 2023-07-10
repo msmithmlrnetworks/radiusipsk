@@ -22,7 +22,7 @@ services:
       MONGODB_URI: mongodb://mongo_db:27017
       DB_NAME: radiusdb
     depends_on: 
-      - mongo_db
+      - mongodb
   # Node api service
   freeradius:
     image: freeradius/freeradius-server:latest
