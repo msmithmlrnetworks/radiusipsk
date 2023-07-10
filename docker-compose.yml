@@ -28,11 +28,12 @@ services:
       # local->container
       - 1812:1812/udp
       - 1813:1813/udp
-    environment:
-      PORT: 3000
-      MONGODB_URI: mongodb://mongo_db:27017
-      DB_NAME: sample-db
-    depends_on: 
-      - mongo_db
+    volumes:
+      - ./resources/freeradius/nano:/etc/raddb/sites-enabled/nano
+      - ./resources/freeradius/clients.conf:/etc/raddb/clients.conf
+      - ./resources/freeradius/radiusd.conf:/etc/raddb/radiusd.conf
+      - ./resources/freeradius/rest:/etc/raddb/mods-enabled/rest
+      - ./resources/freeradius/logs:/var/log/freeradius
+
 volumes:
   mongo_data: {}
