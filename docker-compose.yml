@@ -8,9 +8,7 @@ services:
     restart: always
     volumes:
       - ./mongo_data:/data/db
-    ports:
-      # local->container
-      - 27017:27017
+
   # Node api service
   api:
     build: .
