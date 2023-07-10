@@ -6,6 +6,9 @@ services:
     container_name: db_container
     image: mongo:latest
     restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: testing123
     volumes:
       - ./mongo_data:/data/db
 
@@ -17,9 +20,11 @@ services:
       - 4000:3000
     environment:
       PORT: 3000
-      MONGODB_URI: mongodb://mongodb:27017
+      MONGODB_URI: mongodb://root:testing123@mongodb:27017
       DB_NAME: radiusdb
     depends_on: 
+      - mongodb
+    links:
       - mongodb
   # Node api service
   freeradius:
