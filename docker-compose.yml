@@ -3,14 +3,14 @@ version: '3.9'
 services:
   # Mongodb service
   mongodb:
-    container_name: db_container
+    container_name: mongodb
     image: mongo:latest
     restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: testing123
     volumes:
       - ./mongo_data:/data/db
+    ports:
+      # local->container
+      - 27017:27017
 
   # Node api service
   api:
@@ -20,7 +20,7 @@ services:
       - 4000:3000
     environment:
       PORT: 3000
-      MONGODB_URI: mongodb://root:testing123@mongodb:27017
+      MONGODB_URI: mongodb://mongodb:27017
       DB_NAME: radiusdb
     depends_on: 
       - mongodb
