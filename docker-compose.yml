@@ -36,6 +36,7 @@ services:
       chmod 755 /etc/raddb/clients.conf;
       chmod 755 /etc/raddb/mods-available/rest;
       chmod 755 /etc/raddb/radiusd.conf;
+      chmod 755 /etc/raddb/sites-enabled/default;
       echo 'Starting radius server...';
       /docker-entrypoint.sh"
     ports:
@@ -46,6 +47,6 @@ services:
       - "./resources/freeradius/clients.conf:/etc/raddb/clients.conf"
       - "./resources/freeradius/radiusd.conf:/etc/raddb/radiusd.conf"
       - "./resources/freeradius/rest:/etc/raddb/mods-available/rest"
-      # - "./resources/freeradius/nano:/etc/raddb/sites-enabled/nano"
+      - "./resources/freeradius/nano:/etc/raddb/sites-enabled/default"
 
 
