@@ -28,24 +28,24 @@ services:
       - mongodb
 
   # Node api service
-  freeradius:
-    image: freeradius/freeradius-server:latest
-    command:  >
-      bash -c "set -e;
-      echo 'Initialize plugins...';
-      chmod 755 /etc/raddb/clients.conf;
-      chmod 755 /etc/raddb/mods-available/rest;
-      chmod 755 /etc/raddb/radiusd.conf;
-      echo 'Starting radius server...';
-      /docker-entrypoint.sh"
-    ports:
-      # local->container
-      - 1812:1812/udp
-      - 1813:1813/udp
-    volumes:
-      - "./resources/freeradius/clients.conf:/etc/raddb/clients.conf"
-      - "./resources/freeradius/radiusd.conf:/etc/raddb/radiusd.conf"
-      - "./resources/freeradius/rest:/etc/raddb/mods-available/rest"
-      # - "./resources/freeradius/nano:/etc/raddb/sites-enabled/default"
+  # freeradius:
+  #   image: freeradius/freeradius-server:latest
+  #   command:  >
+  #     bash -c "set -e;
+  #     echo 'Initialize plugins...';
+  #     chmod 755 /etc/raddb/clients.conf;
+  #     chmod 755 /etc/raddb/mods-available/rest;
+  #     chmod 755 /etc/raddb/radiusd.conf;
+  #     echo 'Starting radius server...';
+  #     /docker-entrypoint.sh"
+  #   ports:
+  #     # local->container
+  #     - 1812:1812/udp
+  #     - 1813:1813/udp
+  #   volumes:
+  #     - "./resources/freeradius/clients.conf:/etc/raddb/clients.conf"
+  #     - "./resources/freeradius/radiusd.conf:/etc/raddb/radiusd.conf"
+  #     - "./resources/freeradius/rest:/etc/raddb/mods-available/rest"
+  #     # - "./resources/freeradius/nano:/etc/raddb/sites-enabled/default"
 
 
