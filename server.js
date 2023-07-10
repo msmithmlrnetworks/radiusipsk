@@ -4,9 +4,6 @@ var express = require('express'),
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
   morgan = require('morgan'),
-  Accounting = require('./api/models/radius-accounting'),
-  Users = require('./api/models/users'),
-  Profiles = require('./api/models/profiles'),
   config = require('./config');
 
   
